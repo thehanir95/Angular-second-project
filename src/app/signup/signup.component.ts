@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
 
 
-  isLinear = false;
+  isLinear = true;
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -27,11 +27,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      firstCtrl: ['', [Validators.required,Validators.minLength(4)]]
     });
 
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: ['',[ Validators.required,Validators.minLength(4)]]
     });
 
     
@@ -68,4 +68,9 @@ export class SignupComponent implements OnInit {
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
+
+  getData(){
+    console.log("FoodCabinName: "+this.firstFormGroup.value["firstCtrl"]);
+  }
+
 }

@@ -1,6 +1,4 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
+<div class="container">
 
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
 
@@ -150,8 +148,11 @@
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="getData()">Register</button>
       </div>
     </mat-step>
 
   </mat-horizontal-stepper>
   
+
+</div>
